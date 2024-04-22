@@ -1,3 +1,4 @@
+// Copyright 2024 J-F Bilodeau
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,0 +1,28 @@
+name: Build and Test ASP.NET 8.0
+
+on:  # <- This is your trigger definition
+  push:  # <- This is the type of trigger
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0'
+
+      - name: Restore NuGet packages
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release
+
+      - name: Test
+        run: dotnet test
